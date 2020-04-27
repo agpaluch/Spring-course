@@ -3,10 +3,10 @@ package io.gitub.agpaluch.model;
 import java.util.List;
 import java.util.Optional;
 
-public interface TaskGroupRepository {
-    List<TaskGroup> findAll();
+public interface ProjectRepository {
+    List<Project> findAll();
 
-    Optional<TaskGroup> findById(Integer id);
+    Optional<Project> findById(Integer id);
 
-    TaskGroup save(TaskGroup entity);
+    Project save(Project entity);
 }

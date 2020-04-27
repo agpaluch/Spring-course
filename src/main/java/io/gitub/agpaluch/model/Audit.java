@@ -1,13 +1,12 @@
 package io.gitub.agpaluch.model;
 
 import javax.persistence.Embeddable;
-import javax.persistence.MappedSuperclass;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import java.time.LocalDateTime;
 
 @Embeddable
-abstract class BaseAuditableEntity {
+class Audit {
     private LocalDateTime createdOn;
     private LocalDateTime updatedOn;
 
