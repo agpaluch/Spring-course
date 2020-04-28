@@ -1,18 +1,15 @@
 package io.gitub.agpaluch.service;
 
-import io.gitub.agpaluch.TaskConfigurationProperties;
 import io.gitub.agpaluch.model.TaskGroup;
 import io.gitub.agpaluch.model.TaskGroupRepository;
 import io.gitub.agpaluch.model.TaskRepository;
 import io.gitub.agpaluch.model.projection.GroupReadModel;
 import io.gitub.agpaluch.model.projection.GroupWriteModel;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Service
+
 public class TaskGroupService {
     private TaskGroupRepository repository;
     private TaskRepository taskRepository;
