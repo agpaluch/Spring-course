@@ -31,7 +31,7 @@ class ProjectServiceTest {
         TaskConfigurationProperties mockConfig = configurationReturning(false);
 
         //system under test
-        ProjectService toTest = new ProjectService(null, mockGroupRepository, mockConfig);
+        ProjectService toTest = new ProjectService(null, mockGroupRepository, , mockConfig, );
 
         //when
         Throwable exception = catchThrowable(() -> toTest.createGroup(LocalDateTime.now(), 0));
@@ -53,7 +53,7 @@ class ProjectServiceTest {
         TaskConfigurationProperties mockConfig = configurationReturning(true);
 
         //system under test
-        ProjectService toTest = new ProjectService(mockRepository, null, mockConfig);
+        ProjectService toTest = new ProjectService(mockRepository, null, , mockConfig, );
 
         //when
         Throwable exception = catchThrowable(() -> toTest.createGroup(LocalDateTime.now(), 0));
@@ -78,7 +78,7 @@ class ProjectServiceTest {
         TaskConfigurationProperties mockConfig = configurationReturning(false);
 
         //system under test
-        ProjectService toTest = new ProjectService(mockRepository, mockGroupRepository, mockConfig);
+        ProjectService toTest = new ProjectService(mockRepository, mockGroupRepository, , mockConfig, );
 
         //when
         Throwable exception = catchThrowable(() -> toTest.createGroup(LocalDateTime.now(), 0));
@@ -106,7 +106,7 @@ class ProjectServiceTest {
         //and
         TaskConfigurationProperties mockConfig = configurationReturning(true);
         //system under test
-        ProjectService toTest = new ProjectService(mockRepository, inMemoryGroupRepo, mockConfig);
+        ProjectService toTest = new ProjectService(mockRepository, inMemoryGroupRepo, , mockConfig, );
 
         //when
         GroupReadModel result = toTest.createGroup(today, 1);
