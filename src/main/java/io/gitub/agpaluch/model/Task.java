@@ -27,8 +27,16 @@ public class Task{
     }
 
     public Task(String description, LocalDateTime deadline){
+        this(description, deadline, null);
+
+    }
+
+    public Task(String description, LocalDateTime deadline, TaskGroup taskGroup){
         this.description = description;
         this.deadline = deadline;
+        if (taskGroup != null){
+            this.group = taskGroup;
+        }
     }
 
 

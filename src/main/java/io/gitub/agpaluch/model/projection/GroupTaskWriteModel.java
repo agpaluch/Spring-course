@@ -1,6 +1,7 @@
 package io.gitub.agpaluch.model.projection;
 
 import io.gitub.agpaluch.model.Task;
+import io.gitub.agpaluch.model.TaskGroup;
 
 import java.time.LocalDateTime;
 
@@ -27,4 +28,10 @@ public class GroupTaskWriteModel {
     public Task toTask(){
         return new Task(description, deadline);
     }
+
+
+    Task toTask(final TaskGroup group) {
+        return new Task(description, deadline, group);
+    }
+
 }
