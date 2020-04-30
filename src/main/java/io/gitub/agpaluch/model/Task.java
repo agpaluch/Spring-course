@@ -1,5 +1,7 @@
 package io.gitub.agpaluch.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
@@ -14,6 +16,8 @@ public class Task{
     @NotBlank(message = "Task description must not be empty")
     private String description;
     private boolean done;
+/*    @JsonFormat
+            (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-ddThh:mm:ss")*/
     private LocalDateTime deadline;
     @Embedded
     private Audit audit = new Audit();

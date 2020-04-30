@@ -14,13 +14,13 @@ import java.util.stream.Collectors;
 public class ProjectService {
     private ProjectRepository projectRepository;
     private TaskGroupRepository taskGroupRepository;
-    private TaskGroupService service;
+    private TaskGroupService taskGroupService;
     private TaskConfigurationProperties config;
 
-    ProjectService(final ProjectRepository projectRepository, final TaskGroupRepository taskGroupRepository, final TaskGroupService service, final TaskConfigurationProperties config) {
+    ProjectService(final ProjectRepository projectRepository, final TaskGroupRepository taskGroupRepository, final TaskGroupService taskGroupService, final TaskConfigurationProperties config) {
         this.projectRepository = projectRepository;
         this.taskGroupRepository = taskGroupRepository;
-        this.service = service;
+        this.taskGroupService = taskGroupService;
         this.config = config;
     }
 
@@ -53,7 +53,7 @@ public class ProjectService {
                                         task.setDeadline(deadline.plusDays(projectStep.getDaysToDeadline()));
                                         return task;
                                             }).collect(Collectors.toSet()));
-                            return service.createGroup(targetGroup);
+                            return taskGroupService.createGroup(targetGroup);
                 }).orElseThrow(() -> new IllegalArgumentException("Project with given id not found"));
 
 
