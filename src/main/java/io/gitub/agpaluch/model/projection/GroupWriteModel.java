@@ -1,5 +1,6 @@
 package io.gitub.agpaluch.model.projection;
 
+import io.gitub.agpaluch.model.Project;
 import io.gitub.agpaluch.model.Task;
 import io.gitub.agpaluch.model.TaskGroup;
 
@@ -27,7 +28,7 @@ public class GroupWriteModel {
         this.tasks = tasks;
     }
 
-    public TaskGroup toGroup() {
+    public TaskGroup toGroup(final Project project) {
         TaskGroup result = new TaskGroup();
         result.setDescription(description);
         result.setTasks(
@@ -35,6 +36,7 @@ public class GroupWriteModel {
                         .map(source -> source.toTask(result))
                         .collect(Collectors.toSet())
         );
+        result.setProject(project);
         return result;
     }
 }

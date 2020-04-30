@@ -1,5 +1,6 @@
 package io.gitub.agpaluch.service;
 
+import io.gitub.agpaluch.model.Project;
 import io.gitub.agpaluch.model.TaskGroup;
 import io.gitub.agpaluch.model.TaskGroupRepository;
 import io.gitub.agpaluch.model.TaskRepository;
@@ -21,7 +22,11 @@ public class TaskGroupService {
     }
 
     public GroupReadModel createGroup(GroupWriteModel source) {
-        TaskGroup result = repository.save(source.toGroup());
+        return createGroup(source, null);
+    }
+
+    GroupReadModel createGroup(final GroupWriteModel source, final Project project) {
+        TaskGroup result = repository.save(source.toGroup(project));
         return new GroupReadModel(result);
     }
 

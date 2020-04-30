@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.*;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.net.URI;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
@@ -56,6 +59,12 @@ class TaskController {
         return ResponseEntity.ok(
                 repository.findByDone(state)
         );
+    }
+
+
+    @GetMapping("/search/today")
+    ResponseEntity<List<Task>> readTasksForToday(){
+        return ResponseEntity.ok(repository.findAllByDoneIsFalseAndDeadlineIsNullOrDeadlineIsLessThanEqual(LocalDate.now().atTime(LocalTime.MAX)));
     }
 
 
