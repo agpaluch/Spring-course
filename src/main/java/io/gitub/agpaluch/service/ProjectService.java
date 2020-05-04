@@ -5,6 +5,7 @@ import io.gitub.agpaluch.model.*;
 import io.gitub.agpaluch.model.projection.GroupReadModel;
 import io.gitub.agpaluch.model.projection.GroupTaskWriteModel;
 import io.gitub.agpaluch.model.projection.GroupWriteModel;
+import io.gitub.agpaluch.model.projection.ProjectWriteModel;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -30,8 +31,8 @@ public class ProjectService {
     }
 
 
-    Project save(Project toSave) {
-        return projectRepository.save(toSave);
+    public Project save(ProjectWriteModel toSave) {
+        return projectRepository.save(toSave.toProject());
     }
 
 
